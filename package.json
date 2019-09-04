@@ -1,0 +1,40 @@
+{
+  "name": "jszmq",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
+  "scripts": {
+    "test": "jasmine-ts --config=jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somdoron/JSMQ.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeromq/zeromqz/issues"
+  },
+  "homepage": "https://github.com/somdoron/JSMQ#readme",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "buffer": "^5.2.1",
+    "events": "^3.0.0",
+    "isomorphic-ws": "^4.0.1",
+    "lodash": "^4.17.15",
+    "setasap": "^2.0.1",
+    "ws": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/events": "^3.0.0",
+    "@types/jasmine": "^3.4.0",
+    "@types/lodash": "^4.14.136",
+    "@types/setasap": "^2.0.0",
+    "@types/ws": "^6.0.1",
+    "jasmine": "^3.4.0",
+    "jasmine-ts": "^0.3.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
