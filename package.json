@@ -1,7 +1,7 @@
 {
   "name": "jszmq",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.2",
+  "description": "Port of zeromq to Javascript over Web Socket transport",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/somdoron/JSMQ.git"
+    "url": "git+https://github.com/zeromq/jszmq.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MPL2.0",
   "bugs": {
-    "url": "https://github.com/zeromq/zeromqz/issues"
+    "url": "https://github.com/zeromq/jszmq/issues"
   },
-  "homepage": "https://github.com/somdoron/JSMQ#readme",
+  "homepage": "https://github.com/zeromq/jszmq#readme",
   "dependencies": {
     "assert": "^2.0.0",
     "buffer": "^5.2.1",

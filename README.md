@@ -18,7 +18,9 @@ The library is currently not compatible with ZWS 1.0 and the implementation of i
 
 ## Installation
 
+```
 npm install --save jszmq
+```
 
 ## Supported socket types
 
