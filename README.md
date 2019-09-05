@@ -2,7 +2,7 @@ jszmq
 ======
 
 jszmq is port of zeromq to Javascript, supporting both browsers and NodeJS.
-The library only support the WebSocket transport (ZWS 2.0).
+The library only support the WebSocket transport ([ZWS 2.0](https://rfc.zeromq.org/spec:45/ZWS/)).
 
 The API of the library is similar to that of [zeromq.js](https://github.com/zeromq/zeromq.js).
 
