@@ -1,3 +1,4 @@
+import 'jasmine'
 import * as jsmq from '../src'
 
 describe('dealer-router', function () {
