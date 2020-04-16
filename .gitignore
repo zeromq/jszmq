@@ -3,3 +3,6 @@ node_modules/
 .idea/
 .npmrc
 .js
+.nyc_output/
+GL/
+coverage
