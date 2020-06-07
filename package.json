@@ -1,18 +1,23 @@
 {
   "name": "jszmq",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Port of zeromq to Javascript over Web Socket transport",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
+  "type": "module",
   "scripts": {
-    "test": "jasmine-ts --config=jasmine.json"
+    "clear": "rm -rf dist/ coverage/ .nyc_output/",
+    "clear:all": "rm -rf node_modules/ npm-debug.log && npm run clear",
+    "test": "jasmine --reporter=jasmine-console-reporter --config=jasmine.json",
+    "coverage": "nyc npm run test && nyc report --reporter=html",
+    "coveralls": "nyc npm run test && nyc report --reporter=text-lcov | coveralls -v"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zeromq/jszmq.git"
   },
   "author": "",
-  "license": "MPL2.0",
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/zeromq/jszmq/issues"
   },
@@ -33,8 +38,10 @@
     "@types/setasap": "^2.0.0",
     "@types/ws": "^6.0.1",
     "jasmine": "^3.4.0",
-    "jasmine-ts": "^0.3.0",
+    "jasmine-console-reporter": "^3.1.0",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "nyc": "^14.1.1",
+    "coveralls": "^3.0.3"
   }
 }

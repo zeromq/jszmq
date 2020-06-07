@@ -17,11 +17,11 @@ export default class XSub extends SocketBase {
     protected attachEndpoint(endpoint:IEndpoint) {
         this.distribution.attach(endpoint)
 
-        this.subscriptions.forEach(s => endpoint.send([Buffer.concat([new Buffer([1]), s])]))
+        this.subscriptions.forEach(s => endpoint.send([Buffer.concat([Buffer.from([1]), s])]))
     }
 
     protected hiccuped(endpoint: IEndpoint) {
-        this.subscriptions.forEach(s => endpoint.send([Buffer.concat([new Buffer([1]), s])]))
+        this.subscriptions.forEach(s => endpoint.send([Buffer.concat([Buffer.from([1]), s])]))
     }
 
     protected endpointTerminated(endpoint:IEndpoint) {
