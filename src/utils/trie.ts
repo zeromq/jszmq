@@ -1,7 +1,6 @@
-import * as assert from 'assert'
+import assert from 'assert'
 import {Buffer} from 'buffer'
 import {resize} from './array'
-import {IEndpoint} from '../types'
 
 type ForeachCallback = (buffer:Buffer) => void
 

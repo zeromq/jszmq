@@ -1,7 +1,7 @@
 import Router from './router'
 import {IEndpoint, Msg} from './types'
 import {Buffer} from "buffer"
-import setAsap = require('setasap')
+import setAsap from 'setasap'
 
 type PendingMsg = [IEndpoint, Buffer[]]
 

@@ -1,7 +1,7 @@
-import WebSocket = require('isomorphic-ws')
+import WebSocket from 'isomorphic-ws'
 import {URL} from 'url'
 import {toNumber} from 'lodash'
-import EventEmitter = require('events')
+import { EventEmitter } from 'events'
 import SocketOptions from './socketOptions'
 import Endpoint from './webSocketEndpoint'
 import * as http from 'http'
@@ -20,17 +20,24 @@ class HttpServerListener {
     }
 
     onUpgrade(request:http.IncomingMessage, socket: net.Socket, head: Buffer) {
-        // @ts-ignore
-        const path = url.parse(request.url).pathname;
-        const wsServer = this.servers.get(path)
+        let wsServer: WebSocket.Server
 
-        if (wsServer)
-            wsServer.handleUpgrade(request, socket, head, function done(ws) {
-                wsServer.emit('connection', ws, request)
-            })
-        else {
-            socket.destroy()
+        if (request.url) {
+            const path = url.parse(request.url).pathname
+
+            if (path) {
+                const wsServer = this.servers.get(path)
+
+                if (wsServer) {
+                    wsServer.handleUpgrade(request, socket, head, function done(ws) {
+                        wsServer.emit('connection', ws, request)
+                    })
+                    return
+                }
+            }
         }
+
+        socket.destroy()
     }
 
     add(path:string, wsServer: WebSocket.Server) {
