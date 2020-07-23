@@ -4,7 +4,6 @@
   "description": "Port of zeromq to Javascript over Web Socket transport",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
