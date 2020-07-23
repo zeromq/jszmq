@@ -1,5 +1,4 @@
-import {Buffer} from 'buffer'
-import EventEmitter = require('events')
+import { EventEmitter } from 'events'
 import SocketOptions from './socketOptions'
 import {find, pull} from 'lodash'
 import {Frame, IEndpoint, IListener, Msg} from './types'
