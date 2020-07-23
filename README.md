@@ -10,7 +10,7 @@ The API of the library is similar to that of [zeromq.js](https://github.com/zero
 
 WebSocket transport added to [zeromq](https://github.com/zeromq/libzmq) recently, and it is only available when compiling from source.
 
-Other ports of zeromq, like NetMQ (C#) and JeroMQ (C#) don't yet support the WebSocket transport.
+Other ports of zeromq, like NetMQ (C#) and JeroMQ (Java) don't yet support the WebSocket transport.
 
 ## Compatibility with ZWS 1.0, zwssock, JSMQ and NetMQ.WebSockets
 
