@@ -1,4 +1,4 @@
-import assert from 'assert'
+import * as assert from 'assert'
 import {IEndpoint} from '../types'
 import {Buffer} from 'buffer'
 import {isUndefined} from 'lodash'

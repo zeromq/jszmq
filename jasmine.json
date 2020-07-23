@@ -1,9 +1,6 @@
 {
-  "spec_dir": "test",
-  "spec_files": ["**/*[tT]est.ts"],
-  "helpers": [
-    "../node_modules/ts-node/register/type-check.js"
-  ],
+  "spec_dir": "lib/test",
+  "spec_files": ["**/*[tT]est.js"],
   "stopSpecOnExpectationFailure": false,
   "random": false
 }
