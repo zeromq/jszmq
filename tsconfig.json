@@ -11,5 +11,6 @@
     "rootDirs": ["./src"],           /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "strict": true,            /* Enable all strict type-checking options. */
     "allowSyntheticDefaultImports": true    /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
-  }
+  },
+  "exclude": ["./test"]
 }
