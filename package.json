@@ -10,7 +10,7 @@
     "clear": "rm -rf lib/ dist/ coverage/ .nyc_output/",
     "clear:all": "rm -rf node_modules/ npm-debug.log && npm run clear",
     "build:test": "npm run clear && tsc -p tsconfig-test.json",
-    "test": "jasmine --reporter=jasmine-console-reporter --config=jasmine.json",
+    "test": "npm run build:test && jasmine --reporter=jasmine-console-reporter --config=jasmine.json",
     "coverage": "nyc npm run test && nyc report --reporter=html",
     "coveralls": "nyc npm run test && nyc report --reporter=text-lcov | coveralls -v"
   },
