@@ -2,8 +2,8 @@
   "name": "jszmq",
   "version": "0.1.3",
   "description": "Port of zeromq to Javascript over Web Socket transport",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
