@@ -6,16 +6,16 @@
   "license": "MPL-2.0",
   "scripts": {
     "start": "npm run build && npm run server",
-    "server": "node lib/api.js",
-    "clean": "rm -rf lib",
+    "server": "node lib/api",
+    "clean": "rm -rf lib && rm -rf dist",
     "build-ts": "ttsc -p tsconfig.json",
     "build-web": "webpack --config lib/webpack.js",
     "build-prod": "NODE_ENV=production npm run build",
     "build": "npm run clean && npm run build-ts && npm run build-web",
-    "livereload": "livereload 'dist/main.js, lib/dist/styles.css'",
+    "livereload": "livereload dist/main.js",
     "watch-ts": "ttsc --incremental -w -p tsconfig.json",
-    "watch-web": "nodemon -w lib/web -x 'npm run build-web'",
-    "watch-server": "nodemon -w lib/api -w lib/lib lib/api/index.js",
+    "watch-web": "nodemon -w lib/web -w lib/shared -x 'npm run build-web'",
+    "watch-server": "nodemon -w lib/api -w lib/shared lib/api/index.js",
     "watch": "NODE_ENV=development concurrently 'npm run watch-ts' 'npm run watch-web' 'npm run watch-server' 'npm run livereload'"
   },
   "devDependencies": {

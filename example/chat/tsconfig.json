@@ -8,7 +8,9 @@
     "rootDir": "src",
     "outDir": "lib",
     "paths": {
-      "lib/*": ["lib/*"]
+      "api/*": ["api/*"],
+      "web/*": ["web/*"],
+      "shared/*": ["shared/*"]
     },
     "plugins": [
       { "transform": "@zerollup/ts-transform-paths", "exclude": ["*"] }
@@ -21,7 +23,7 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "allowJs": false,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": false,
     "resolveJsonModule": true,
     "skipLibCheck": true
   },

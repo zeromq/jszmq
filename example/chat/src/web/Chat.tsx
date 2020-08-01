@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Pub, Sub } from 'jszmq'
-import cuid from 'cuid'
+import * as cuid from 'cuid'
+import { style } from 'typestyle'
 
 import {
   encodeActionEvent,
@@ -9,32 +10,30 @@ import {
   Endpoint,
   Topic,
   ChatMessage,
-  PORT
-} from './shared'
+  PORT,
+} from 'shared'
+import { textColors } from 'web/colors'
+import { styles } from 'web/styles'
 
 // Styles
 const colorClasses = [
-  'flat-green-1',
-  'flat-green-2',
-  'flat-green-3',
-  'flat-green-4',
-  'flat-blue-1',
-  'flat-blue-2',
-  'flat-blue-3',
-  'flat-blue-4',
-  'flat-purple-1',
-  'flat-purple-2',
-  'flat-yellow-1',
-  'flat-orange-1',
-  'flat-orange-2',
-  'flat-orange-3',
-  'flat-red-1',
-  'flat-red-2',
+  textColors.green1,
+  textColors.green2,
+  textColors.green3,
+  textColors.green4,
+  textColors.blue1,
+  textColors.blue2,
+  textColors.blue3,
+  textColors.blue4,
+  textColors.purple1,
+  textColors.purple2,
+  textColors.yellow1,
+  textColors.orange1,
+  textColors.orange2,
+  textColors.orange3,
+  textColors.red1,
+  textColors.red2,
 ]
-
-const classNames = (...classes: string[]): string => {
-  return classes.join(' ')
-}
 
 const colorClassHash = (str: string) => {
   const total = str
@@ -67,7 +66,7 @@ export const ChatLog: React.FC<ChatProps> = ({ pub, sub, topic }) => {
 
   const [username, setUsername] = React.useState<string>('')
 
-  const usernameInput = React.createRef<HTMLInputElement>()
+  const usernameInput = React.createRef<HTMLTextAreaElement>()
 
   const usernameHandler = (evt: React.FormEvent) => {
     const value = usernameInput.current?.value || ''
@@ -79,6 +78,11 @@ export const ChatLog: React.FC<ChatProps> = ({ pub, sub, topic }) => {
       text: `has entered the chat`,
       time: Date.now(),
     })
+
+    if (usernameInput.current) {
+      usernameInput.current.value = ''
+      usernameInput.current.focus()
+    }
 
     pub.send(chatMessage)
     evt.preventDefault()
@@ -106,21 +110,25 @@ export const ChatLog: React.FC<ChatProps> = ({ pub, sub, topic }) => {
 
   if (!username.length) {
     return (
-      <div className="chat">
-        <form autoComplete="false" onSubmit={usernameHandler}>
-          <input
-            type="text"
+      <div className={styles.chat}>
+        <div className={styles.header}>Turtle Chat</div>
+        <form
+          className={styles.form}
+          autoComplete="false"
+          onSubmit={usernameHandler}
+        >
+          <textarea
+            className={styles.input}
             ref={usernameInput}
-            className={classNames('username', username)}
             placeholder="Your Username"
           />
-          <input type="submit" value="Set Username" />
+          <input type="submit" className={styles.submit} value="Set Username" />
         </form>
       </div>
     )
   }
 
-  const text = React.createRef<HTMLInputElement>()
+  const text = React.createRef<HTMLTextAreaElement>()
 
   const submitHandler = (evt: React.FormEvent) => {
     const value = text.current?.value || ''
@@ -140,24 +148,29 @@ export const ChatLog: React.FC<ChatProps> = ({ pub, sub, topic }) => {
 
     if (text.current) {
       text.current.value = ''
+      text.current.focus()
     }
 
     evt.preventDefault()
   }
 
   return (
-    <div className="chat">
-      <div className="chat-header">Turtle Chat</div>
-      <form autoComplete="false" onSubmit={submitHandler}>
-        <input type="text" ref={text} />
-        <input type="submit" value="Send" />
+    <div className={styles.chat}>
+      <div className={styles.header}>Turtle Chat</div>
+      <form
+        className={styles.form}
+        autoComplete="false"
+        onSubmit={submitHandler}
+      >
+        <textarea className={styles.input} ref={text} />
+        <input className={styles.submit} type="submit" value="Send" />
       </form>
-      <div className="chat-log">
+      <div className={styles.log}>
         {messages.map((message: ChatMessage) => {
           const { id, user, text } = message
           return (
-            <div key={id} className="chat-message">
-              <span className={colorClassHash(user)}>{user}</span>
+            <div key={id}>
+              <span className={style(colorClassHash(user))}>{user}</span>
               &nbsp;
               <span>{text}</span>
             </div>

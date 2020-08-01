@@ -3,7 +3,7 @@ import * as http from 'http'
 import * as express from 'express'
 import { Pub, Sub } from 'jszmq'
 
-import { HTML } from './html'
+import { HTML } from 'api/html'
 import {
   encodeActionEvent,
   decodeActionEvent,
@@ -12,14 +12,14 @@ import {
   Endpoint,
   PORT,
   endpoint,
-} from './shared'
+} from 'shared'
 
 const { NODE_ENV } = process.env
 
 // HTTP Server
 const app = express()
 
-const dist = path.resolve(__dirname, '..', 'dist')
+const dist = path.resolve(__dirname, '..', '..', 'dist')
 
 const serveFile = (file: string, mime: string) =>
   app.get(file, (_req, res) => {
