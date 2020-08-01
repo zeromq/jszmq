@@ -5,5 +5,5 @@
     "outDir": "./lib"
   },
   "include": ["./test"],
-  "exclude": ["**/*.d.ts", "./lib", "node_modules"]
+  "exclude": ["./example", "**/*.d.ts", "./lib", "node_modules"]
 }
