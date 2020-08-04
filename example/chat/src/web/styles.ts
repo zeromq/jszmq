@@ -1,12 +1,10 @@
 import { media, style } from 'typestyle'
-import { NestedCSSProperties } from 'typestyle/lib/types'
-import { calc, percent, px, border, color } from 'csx'
+import { calc, percent, px } from 'csx'
 import {
   margin,
   padding,
   height,
   width,
-  flex,
   flexRoot,
   vertical,
   center,

@@ -37,8 +37,6 @@ app.get('*', (req, res) => {
 
 const server = http.createServer(app)
 
-// Serialization
-
 // ZeroMQ Connections
 const pub = new Pub()
 const sub = new Sub()
