@@ -6,3 +6,5 @@ node_modules/
 .nyc_output/
 GL/
 coverage
+*.tsbuildinfo
+*.log

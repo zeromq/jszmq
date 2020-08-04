@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES5",
+    "moduleResolution": "Node",
+    "sourceMap": true,
+    "baseUrl": "src",
+    "rootDir": "src",
+    "outDir": "lib",
+    "paths": {
+      "api/*": ["api/*"],
+      "web/*": ["web/*"],
+      "shared/*": ["shared/*"]
+    },
+    "plugins": [
+      { "transform": "@zerollup/ts-transform-paths", "exclude": ["*"] }
+    ],
+    "noEmitOnError": true,
+    "lib": ["ESNext", "DOM"],
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  },
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents"
+  },
+  "exclude": ["**/*.d.ts", "./lib", "node_modules"]
+}

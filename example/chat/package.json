@@ -1,0 +1,47 @@
+{
+  "name": "jszmq-chat",
+  "main": "index.js",
+  "author": "Hunter Trujillo <hunter@cryptoquick.com>",
+  "private": true,
+  "license": "MPL-2.0",
+  "scripts": {
+    "start": "npm run build && npm run server",
+    "server": "node lib/api",
+    "clean": "rm -rf lib && rm -rf dist",
+    "build-ts": "ttsc -p tsconfig.json",
+    "build-web": "webpack --config lib/webpack.js",
+    "build-prod": "NODE_ENV=production npm run build",
+    "build": "npm run clean && npm run build-ts && npm run build-web",
+    "livereload": "livereload dist/main.js",
+    "watch-ts": "ttsc --incremental -w -p tsconfig.json",
+    "watch-web": "nodemon -w lib/web -w lib/shared -x 'npm run build-web'",
+    "watch-server": "nodemon -w lib/api -w lib/shared lib/api/index.js",
+    "watch": "NODE_ENV=development concurrently 'npm run watch-ts' 'npm run watch-web' 'npm run watch-server' 'npm run livereload'"
+  },
+  "devDependencies": {
+    "@zerollup/ts-transform-paths": "^1.7.18",
+    "concurrently": "^5.2.0",
+    "livereload": "^0.9.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "buffer": "^5.6.0",
+    "csstips": "^1.2.0",
+    "csx": "^10.0.1",
+    "cuid": "^2.1.8",
+    "express": "^4.17.1",
+    "jszmq": "file:../..",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typestyle": "^2.1.0"
+  }
+}
