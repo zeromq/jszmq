@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import {assert} from './assert'
 import {Buffer} from 'buffer'
 import {resize} from './array'
 
@@ -92,10 +92,10 @@ export default class Trie {
                 this.next = []
                 this.count = 0
                 this.liveNodes--
-                assert(this.liveNodes == 0)
+                assert(this.liveNodes == 0, "this.liveNodes == 0")
             } else {
                 this.next[currentCharacter - this.minCharacter] = null
-                assert(this.liveNodes > 1)
+                assert(this.liveNodes > 1, "this.liveNodes > 1")
                 this.liveNodes--
 
                 if (currentCharacter == this.minCharacter) {
@@ -108,9 +108,9 @@ export default class Trie {
                             break
                         }
                     }
-                    assert(newMin != this.minCharacter)
-                    assert(newMin > this.minCharacter)
-                    assert(this.count > newMin - this.minCharacter)
+                    assert(newMin != this.minCharacter, "newMin != this.minCharacter")
+                    assert(newMin > this.minCharacter, "newMin > this.minCharacter")
+                    assert(this.count > newMin - this.minCharacter, "this.count > newMin - this.minCharacter")
 
                     this.count = this.count - (newMin - this.minCharacter)
                     this.next = resize(this.next, this.count, false);
@@ -125,7 +125,7 @@ export default class Trie {
                             break
                         }
                     }
-                    assert(newCount != this.count)
+                    assert(newCount != this.count, "newCount != this.count")
                     this.count = newCount
 
                     this.next = resize(this.next, this.count, true)
